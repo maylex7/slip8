@@ -1,0 +1,145 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+# ทำการ redirect ให้มี www  https://www
+#RewriteCond %{HTTP_HOST} !^www.
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# ทำการ redirect http to https
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+</IfModule>
+
+Options -Indexes
+
+ErrorDocument 400 https://www.ccit.go.th
+#ErrorDocument 401 https://www.ccit.go.th
+ErrorDocument 403 https://www.ccit.go.th
+ErrorDocument 404 https://www.ccit.go.th
+ErrorDocument 500 https://www.ccit.go.th
+
+order allow,deny
+deny from 3.230.118.106
+deny from 44.199.252.145
+deny from 157.55.39.192
+deny from 5.45.80.13
+deny from 20.124.24.61
+deny from 49.49.218.26
+deny from 193.142.146.138
+deny from 46.64.171.2
+deny from 39.187.93.11
+deny from 210.191.126.203
+deny from 116.9.31.75
+deny from 185.191.171.20
+deny from 123.149.77.60
+deny from 202.62.102.113
+deny from 172.70.142.144
+deny from 182.232.50.73
+deny from 120.188.79.224
+deny from 207.46.13.24
+deny from 39.bl.bot.semrush.com
+deny from 20.bl.bot.semrush.com
+deny from *.semrush.com
+deny from 44.bl.bot.semrush.com
+deny from 116.9.31.184
+deny from static.30.18.9.5.clients.your-server.de
+deny from 49.230.161.77
+deny from 103.129.79.35
+deny from 5.9.18.30
+deny from 49.230.169.19
+deny from 182.232.55.39
+deny from 113.53.55.185
+deny from 185.191.171.38
+deny from 182.232.55.39
+deny from 58.64.57.151
+deny from 125.25.191.242
+deny from 141.8.142.90
+deny from 5.9.18.30
+deny from 111.65.34.175
+deny from 1.46.150.186
+deny from 106.125.148.96
+deny from 213.180.203.93
+deny from 182.232.143.250
+deny from 182.232.248.229
+deny from 35.192.207.90
+deny from 207.46.13.24
+deny from 185.191.171.39
+deny from 49.37.153.104
+deny from 52.229.38.253
+deny from 185.191.171.
+deny from 94.130.143.70
+deny from 216.244.66.199
+deny from 45.134.225.229
+deny from 154.16.49.23
+deny from 43.251.17.253
+deny from 114.10.19.60
+deny from 167.86.88.216
+deny from 172.64.80.1
+deny from 103.144.14.49
+
+deny from 104.21.87.195
+deny from 172.67.145.182
+
+deny from 207.46.13.118
+deny from 207.46.13.2
+deny from 207.46.13.53 
+deny from 157.55.39.89
+deny from 54.36.148.235
+deny from 185.7.214.104
+deny from 207.46.13.90
+deny from 207.46.13.118
+deny from 157.55.39.8
+
+deny from 185.54.229.51
+deny from  vpn-gw-prod-007.sin0-gcl.ff.avast.com
+deny from  172.68.242.208
+deny from  202.87.222.30
+deny from  207.46.13.90
+deny from  157.55.39.89
+deny from 13.66.139.19
+deny from 172.69.82.44
+deny from 172.69.82.50
+deny from 172.69.82.8
+deny from 172.68.6.138 
+deny from 172.68.153.135
+deny from 172.70.116.156
+deny from 172.70.126.118
+deny from 172.70.126.194
+deny from 172.69.82.8
+deny from 172.70.178.124
+deny from 172.70.178.172
+deny from 172.70.178.144
+deny from 172.70.127.39 
+deny from 172.70.179.15
+deny from 162.158.107.21
+deny from 172.70.178.20
+deny from 172.70.179.21
+deny from 172.70.178.102 
+deny from 172.70.178.22
+deny from 108.162.246.83
+
+deny from 52.189.225.183
+deny from 20.41.122.73
+deny from 52.231.70.127
+deny from 20.125.96.175
+deny from 13.90.38.225
+deny from 40.113.237.169
+deny from 52.188.147.177
+deny from 20.119.57.81
+deny from 40.113.237.169 
+deny from 20.119.57.81
+deny from 52.151.248.205
+deny from 20.7.168.0
+deny from 20.119.89.36
+deny from 20.254.96.54
+deny from 107.155.39.22
+
+
+allow from all
+
+SetEnvIfNoCase Referer "dinixo.com" bad_referer
+Order Allow,Deny
+Allow from ALL
+Deny from env=bad_referer
